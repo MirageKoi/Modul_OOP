@@ -9,7 +9,7 @@ def get_player_name():
         if len(name) < 1 or name.isspace():
             continue
         break
-    return name.rstrip().strip()
+    return name.strip()
 
 
 def play():
