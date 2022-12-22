@@ -10,9 +10,9 @@ class Enemy:
         self.health = lvl
 
     def decrease_health(self):
-        if self.health == 1:
-            raise EnemyDown
         self.health -= 1
+        if self.health < 1:
+            raise EnemyDown
 
     @staticmethod
     def random_choice():
@@ -26,18 +26,19 @@ class Player:
         self.score = INITIAL_PLAYER_SCORE
 
     def decrease_health(self):
-        if self.health == 1:
-            raise GameOver
         self.health -= 1
+        if self.health < 1:
+            raise GameOver
 
     @staticmethod
     def select_choice():
-        check = ['1', '2', '3']
-        while True:
-            choice = input("MAKE A FIGHT CHOICE FROM (WARRIOR - 1, ROBBER - 2, WIZARD - 3: ")
-            if choice not in check:
-                continue
-            return int(choice)
+        choice: int = 0
+        while choice not in [1, 2, 3]:
+            try:
+                choice = int(input("MAKE A FIGHT CHOICE FROM (WARRIOR - 1, ROBBER - 2, WIZARD - 3: "))
+            except ValueError:
+                pass
+        return choice
 
     @staticmethod
     def fight(attack: int, defence: int):

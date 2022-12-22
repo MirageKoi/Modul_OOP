@@ -3,13 +3,11 @@ from Models import Player, Enemy
 from Settings import INITIAL_ENEMY_LEVEL
 
 
-def get_player_name():
-    while True:
-        name = input("Choose your name: ")
-        if len(name) < 1 or name.isspace():
-            continue
-        break
-    return name.strip()
+def get_player_name() -> str:
+    name: str = ""
+    while not name:
+        name = input("Choose your name: ").strip()
+    return name
 
 
 def write_to_file(player: Player) -> None:
