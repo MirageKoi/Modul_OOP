@@ -12,6 +12,11 @@ def get_player_name():
     return name.strip()
 
 
+def write_to_file(player: Player) -> None:
+    with open('scores.txt', 'a') as file:
+        file.write(f"Name: {player.name} --- points: {player.score}\n")
+
+
 def play():
     lvlup = INITIAL_ENEMY_LEVEL
     player = Player(get_player_name())
@@ -28,11 +33,11 @@ def play():
             continue
         except KeyboardInterrupt:
             print(f'\nGame finished\nPlayer {player.name} has {player.score} score')
+            write_to_file(player)
             break
         except GameOver:
             print(f"Game over! Player {player.name} has {player.score} score")
-            with open('scores.txt', 'a') as file:
-                file.write(f"Name: {player.name} --- points: {player.score}\n")
+            write_to_file(player)
             break
 
 
