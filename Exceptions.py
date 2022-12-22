@@ -1,4 +1,3 @@
-
 class EnemyDown(Exception):
     """ This class exception where the enemy is down"""
     pass

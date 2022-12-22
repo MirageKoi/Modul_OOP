@@ -13,7 +13,7 @@ def get_player_name():
 
 
 def play():
-    lvlup = 0
+    lvlup = INITIAL_ENEMY_LEVEL
     player = Player(get_player_name())
     enemy = Enemy(INITIAL_ENEMY_LEVEL)
     while True:
@@ -23,7 +23,7 @@ def play():
         except EnemyDown:
             print(f"Enemy level {enemy.lvl} is defeated")
             lvlup += 1
-            enemy = Enemy(INITIAL_ENEMY_LEVEL + lvlup)
+            enemy = Enemy(lvlup)
             player.score += 2
             continue
         except KeyboardInterrupt:

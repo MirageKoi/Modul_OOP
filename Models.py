@@ -1,7 +1,7 @@
 from random import randint
 
 from Exceptions import GameOver, EnemyDown
-from Settings import INITIAL_PLAYER_HEALTH
+from Settings import INITIAL_PLAYER_HEALTH, INITIAL_PLAYER_SCORE
 
 
 class Enemy:
@@ -23,7 +23,7 @@ class Player:
     def __init__(self, name: str):
         self.name = name
         self.health = INITIAL_PLAYER_HEALTH
-        self.score = 0
+        self.score = INITIAL_PLAYER_SCORE
 
     def decrease_health(self):
         if self.health == 1:
