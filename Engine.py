@@ -22,9 +22,9 @@ def play():
             player.defense(enemy)
         except EnemyDown:
             print(f"Enemy level {enemy.lvl} is defeated")
+            lvlup += 1
             enemy = Enemy(INITIAL_ENEMY_LEVEL + lvlup)
             player.score += 2
-            lvlup += 1
             continue
         except KeyboardInterrupt:
             print(f'\nGame finished\nPlayer {player.name} has {player.score} score')
