@@ -40,7 +40,7 @@ class Player:
             return int(choice)
 
     @staticmethod
-    def fight(attack, defence):
+    def fight(attack: int, defence: int):
         # 1 Warrior beats 2 Robber
         # 2 Robber beats 3 Wizard
         # 3 Wizard beats 1 Warrior
